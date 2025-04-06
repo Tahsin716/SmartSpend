@@ -12,7 +12,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 
-import Navbar from './components/layout/Navbar';
+import Navbar from './components/layouts/Navbar.tsx';
 
 interface ProtectedRouteProps {
     children: React.ReactElement; 
