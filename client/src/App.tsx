@@ -8,7 +8,7 @@ import DashboardPage from './pages/DashboardPage.tsx';
 import ExpensesPage from './pages/ExpensesPage';
 import BudgetPage from './pages/BudgetPage';
 import ResourcesPage from './pages/ResourcesPage';
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/LoginPage.tsx';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 
