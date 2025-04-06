@@ -4,7 +4,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 
 import { Container, Box, CircularProgress } from '@mui/material';
 
-import DashboardPage from './pages/DashboardPage';
+import DashboardPage from './pages/DashboardPage.tsx';
 import ExpensesPage from './pages/ExpensesPage';
 import BudgetPage from './pages/BudgetPage';
 import ResourcesPage from './pages/ResourcesPage';
