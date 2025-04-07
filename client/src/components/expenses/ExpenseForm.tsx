@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { addExpense } from '../../services/api';
-import { Box, TextField, Button, Typography, Alert, CircularProgress, Stack } from '@mui/material';
+import { Box, TextField, Button, Typography, Alert, CircularProgress } from '@mui/material';
 import { Expense, ExpenseData } from '../../types';
 
 interface ExpenseFormProps {
