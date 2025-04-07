@@ -79,6 +79,7 @@ export interface AuthContextType {
     login: (credentials: LoginCredentials) => Promise<UserInfo>;
     register: (data: RegisterData) => Promise<UserInfo>;
     logout: () => void;
+    setUser: React.Dispatch<React.SetStateAction<UserInfo | null>>;
 }
 
 export interface ChartDataStructure {
