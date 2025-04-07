@@ -5,12 +5,12 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Container, Box, CircularProgress } from '@mui/material';
 
 import DashboardPage from './pages/DashboardPage.tsx';
-import ExpensesPage from './pages/ExpensesPage';
-import BudgetPage from './pages/BudgetPage';
-import ResourcesPage from './pages/ResourcesPage';
+import ExpensesPage from './pages/ExpensePage.tsx';
+import BudgetPage from './pages/BudgetPage.tsx';
+import ResourcesPage from './pages/ResourcePage.tsx';
 import LoginPage from './pages/LoginPage.tsx';
-import RegisterPage from './pages/RegisterPage';
-import ProfilePage from './pages/ProfilePage';
+import RegisterPage from './pages/RegisterPage.tsx';
+import ProfilePage from './pages/ProfilePage.tsx';
 
 import Navbar from './components/layouts/Navbar.tsx';
 
