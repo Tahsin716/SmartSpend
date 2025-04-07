@@ -19,7 +19,7 @@ const ResourcesPage: React.FC = () => {
             setErrorArticles('');
             try {
                 const { data } = await getStaticArticles();
-                setArticles(data);
+                setArticles(data || []);
             } catch (err: any) {
                 setErrorArticles(err.response?.data?.message || 'Failed to load articles.');
             } finally {
@@ -93,24 +93,25 @@ const ResourcesPage: React.FC = () => {
                          )}
                          {!loadingArticles && articles.length > 0 && (
                             <Box>
-                                {articles.map((article, index) => (
-                                    <Accordion key={article.id} defaultExpanded={index === 0}> {/* Expand first article by default */}
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            aria-controls={`article-${article.id}-content`}
-                                            id={`article-${article.id}-header`}
-                                        >
-                                            <Typography sx={{fontWeight: 'medium'}}>{article.title}</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <Typography variant="body2">
-                                                {article.content}
-                                                 {/* Render links if article object contains a URL */}
-                                                 {/* {article.url && <Link href={article.url} target="_blank" rel="noopener noreferrer" sx={{display: 'block', mt: 1}}>Read full article</Link>} */}
-                                            </Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                ))}
+                                {articles.map((article, index) => {
+                                    if (!article || !article.id) return null; // Guard against undefined/malformed article
+                                    return (
+                                        <Accordion id={article.id} key={article.id} defaultExpanded={index === 0}>
+                                            <AccordionSummary
+                                                expandIcon={<ExpandMoreIcon />}
+                                                aria-controls={`article-${article.id}-content`}
+                                                id={`article-${article.id}-header`}
+                                            >
+                                                <Typography sx={{ fontWeight: 'medium' }}>{article.title}</Typography>
+                                            </AccordionSummary>
+                                            <AccordionDetails>
+                                                <Typography variant="body2">
+                                                    {article.content}
+                                                </Typography>
+                                            </AccordionDetails>
+                                        </Accordion>
+                                    );
+                                })}
                             </Box>
                          )}
                      </Paper>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { updateUserConsent } from '../services/api';
 import { UserConsent, UserInfo } from '../types';
