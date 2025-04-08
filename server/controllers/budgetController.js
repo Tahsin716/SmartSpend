@@ -78,7 +78,7 @@ const getBudgets = async (req, res) => {
 const deleteBudget = async (req, res) => {
     const userId = req.user._id;
     const budgetId = req.params.id;
-
+    debugger
     try {
         const budget = await Budget.findById(budgetId);
 
@@ -90,7 +90,7 @@ const deleteBudget = async (req, res) => {
             return res.status(401).json({ message: 'User not authorized to delete this budget.' });
         }
 
-        await budget.remove(); 
+        await budget.deleteOne(); 
         res.status(200).json({ message: 'Budget removed successfully.' });
 
     } catch (error) {
