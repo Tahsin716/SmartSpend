@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { getExpenses  } from '../services/api';
+import { getExpenses, deleteExpense } from '../services/api';
 import { Expense } from '../types';
 import ExpenseForm from '../components/expenses/ExpenseForm'; 
 import ExpenseItem from '../components/expenses/ExpenseItem';
@@ -37,16 +37,13 @@ const ExpensesPage: React.FC = () => {
     };
 
      const handleDeleteExpense = async (id: string) => {
-          setDeletingId(id); // Indicate deletion in progress for this item
-          setError(''); // Clear previous errors
+          setDeletingId(id); 
+          setError(''); 
           try {
-            // --- IMPORTANT ---
-            // You need to implement `deleteExpense` in `src/services/api.ts`
-            // and the corresponding DELETE route/controller on the backend.
-            // Example call (assuming implementation exists):
-            // await deleteExpense(id);
+            
+            await deleteExpense(id);
 
-            console.log(`Attempting to delete expense with ID: ${id}`); // Placeholder
+            console.log(`Attempting to delete expense with ID: ${id}`); 
             await new Promise(resolve => setTimeout(resolve, 500));
 
             setExpenses(prevExpenses => prevExpenses.filter(exp => exp._id !== id));

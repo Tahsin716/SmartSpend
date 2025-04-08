@@ -48,6 +48,9 @@ export const updateUserConsent = (consentData: Partial<RegisterData['consent']>)
 export const addExpense = (expenseData: ExpenseData) =>
     api.post<Expense>('/expenses', expenseData); 
 
+export const deleteExpense = (expenseId: string) =>
+    api.delete<{ message: string }>(`/expenses/${expenseId}`);
+
 export const getExpenses = () =>
     api.get<Expense[]>('/expenses'); 
 
